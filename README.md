@@ -1,1 +1,1 @@
-# A quick Script for setting up Linux #
+# A Quick Script For Setting up Linux
