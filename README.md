@@ -1,4 +1,4 @@
-# A Quick Script For Setting up Linux
+# A Quick Script For Setting Up Linux
 
 ### Distributions Supported:
 - Fedora
