@@ -14,17 +14,17 @@ os.system('dnf upgrade -y')
 
 print()
 print("#################################")
-print("个性设置")
+print("选择安装包")
 
-# =选装软件=
+# =选择安装包=
 # - 安装全部？
-all_QuanBu = input('是否安装全部包？[y/n]')
+all_QuanBu = input('是否安装全部包？[y/n] ')
 if (all_QuanBu == 'y'):
     supplement = ' -y'
 else:
     supplement = ''
 
-# 视频录制软件
+# - 视频录制软件
 print('需要录屏软件simple screen recorder?')
 x = pexpect.spawn('dnf install simplescreenrecorder' + supplement)
 x.interact()
@@ -98,19 +98,22 @@ print("*********************************")
 # gnome-tweak-tool
 
 
+# Alarm Clock闹钟?
+print('Alarm Clock闹钟?')
+x = pexpect.spawn('dnf install ftp://ftp.pbone.net/mirror/ftp5.gwdg.de/pub/opensuse/repositories/GNOME:/Apps/openSUSE_Factory+GNOME_Factory/x86_64/alarm-clock-applet-0.3.4-1.9.x86_64.rpm' + supplement)
+x.interact()
+if (x.isalive() == False):
+    x.close()
+print("*********************************")
 
 
-
-
-
-
-
-
-
-
-
-
-
+# 解码器
+print('解码器multimedia codecs?')
+x = pexpect.spawn('dnf install gstreamer1-plugins-base gstreamer1-plugins-good gstreamer1-plugins-ugly gstreamer1-plugins-bad-free gstreamer1-plugins-bad-free gstreamer1-plugins-bad-freeworld gstreamer1-plugins-bad-free-extras ffmpeg' + supplement)
+x.interact()
+if (x.isalive() == False):
+    x.close()
+print("*********************************")
 
 
 
@@ -124,6 +127,9 @@ print(
 3. 改键盘重复速度
 4. 更改成x11模式，而非wayland
 """)
+
+# 字体
+
 print("gnome-shell-extension")
 
 print()
