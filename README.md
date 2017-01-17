@@ -1,5 +1,5 @@
 # A Quick Script For Setting up Linux
 
-### Distribution Supported:
+### Distributions Supported:
 - Fedora
 - Ubuntu(working on it)
