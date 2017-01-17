@@ -115,6 +115,8 @@ if (x.isalive() == False):
     x.close()
 print("*********************************")
 
+# virtualbox
+
 
 
 
@@ -129,6 +131,7 @@ print(
 """)
 
 # 字体
+# Flash
 
 print("gnome-shell-extension")
 
