@@ -212,6 +212,7 @@ print("*********************************")
 
 print("gnome-shell-extension")
 # Media player indicator 
+# https://github.com/codito/gnome-pomodoro
 print()
 print("#################################")
 print('Done!')
