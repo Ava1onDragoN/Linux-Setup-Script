@@ -108,6 +108,11 @@ print("*********************************")
 
 # gnome-tweak-tool
 
+# teamspeak
+
+# skype
+
+# 格式转换
 
 # Alarm Clock闹钟?
 print('Alarm Clock闹钟?')
