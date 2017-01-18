@@ -1,9 +1,9 @@
-import pexpect
 import os
 
 print('...')
 # 安装pexpect先
 os.system('pip3 install pexpect')
+import pexpect
 
 # =必须配置=
 # - rpmfusion 
@@ -64,10 +64,21 @@ if (x.isalive() == False):
     x.close()
 print("*********************************")
 
-# N卡驱动
-print('N卡驱动?')
-os.system('dnf install xorg-x11-drv-nvidia akmod-nvidia "kernel-devel-uname-r == $(uname -r)"' + supplement)
+
+# chromium浏览器
+print('Chromium浏览器?')
+os.system('dnf copr enable churchyard/chromium-russianfedora -y')
+x = pexpect.spawn('dnf install chromium' + supplement)
+x.interact()
+if (x.isalive() == False):
+    x.close()
 print("*********************************")
+
+
+# N卡驱动
+#print('N卡驱动?')
+#os.system('dnf install xorg-x11-drv-nvidia akmod-nvidia "kernel-devel-uname-r == $(uname -r)"' + supplement)
+#print("*********************************")
 
 # Dropbox
 print('Dropbox?')
@@ -117,24 +128,85 @@ print("*********************************")
 
 # virtualbox
 
+# VLC播放器
+print('VLC播放器?')
+x = pexpect.spawn('dnf install vlc mozilla-vlc' + supplement)
+x.interact()
+if (x.isalive() == False):
+    x.close()
+print("*********************************")
+
+# mypaint
+print('MyPaint?')
+x = pexpect.spawn('dnf install mypaint' + supplement)
+x.interact()
+if (x.isalive() == False):
+    x.close()
+print("*********************************")
+
+
+#pitivi
+
+#blender
+
+#
+
+
+
+
+
+
+print()
+print("#################################")
+print("开发工具")
+# - 安装全部？
+all_QuanBu = input('是否安装全部包？[y/n] ')
+if (all_QuanBu == 'y'):
+    supplement = ' -y'
+else:
+    supplement = ''
+
+if (supplement == ''):
+    jdk_boolean = input('安装Java SE Development Kit 8?[y/n] ')
+if (supplement == ' -y' or jdk_boolean == 'y'):
+    # JDK8
+    print('手动下载:\nhttp://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html')
+    print('选择对象:') 
+    print('alternatives --config java')
+    print('alternatives --config javac')
+#print("*********************************")
 
 
 
 print()
 print("#################################")
 print("个性设置")
+# - 安装全部？
+all_QuanBu = input('使用/安装全部个性配置？[y/n] ')
+if (all_QuanBu == 'y'):
+    supplement = ' -y'
+else:
+    supplement = ''
+
 print(
 """1. 改头像
 2. 改英文
 3. 改键盘重复速度
 4. 更改成x11模式，而非wayland
 """)
+# 解码器
+print('Plank(一个非常棒的dock?)')
+x = pexpect.spawn('dnf install plank' + supplement)
+x.interact()
+if (x.isalive() == False):
+    x.close()
+print("*********************************")
 
 # 字体
 # Flash
 
 print("gnome-shell-extension")
-
+# Media player indicator 
 print()
 print("#################################")
 print('Done!')
