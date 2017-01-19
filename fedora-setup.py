@@ -114,6 +114,8 @@ print("*********************************")
 
 # 格式转换
 
+# Transmission
+
 # Alarm Clock闹钟?
 print('Alarm Clock闹钟?')
 x = pexpect.spawn('dnf install ftp://ftp.pbone.net/mirror/ftp5.gwdg.de/pub/opensuse/repositories/GNOME:/Apps/openSUSE_Factory+GNOME_Factory/x86_64/alarm-clock-applet-0.3.4-1.9.x86_64.rpm' + supplement)
