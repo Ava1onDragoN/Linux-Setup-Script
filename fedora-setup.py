@@ -234,13 +234,6 @@ print(
 3. 改键盘重复速度
 4. 更改成x11模式，而非wayland
 """)
-# 解码器
-print('Plank(一个非常棒的dock?)')
-x = pexpect.spawn('dnf install plank' + supplement)
-x.interact()
-if (x.isalive() == False):
-    x.close()
-print("*********************************")
 
 # 字体
 # Flash
@@ -265,7 +258,7 @@ print("gnome-shell-extension")
 # Media player indicator 
 # https://github.com/codito/gnome-pomodoro
 
-# 解码器
+# paper主题
 print('PAPER主题?')
 os.system("dnf config-manager --add-repo http://download.opensuse.org/repositories/home:snwh:paper/Fedora_25/home:snwh:paper.repo -y")
 x = pexpect.spawn('dnf install paper-icon-theme paper-gtk-theme' + supplement)
