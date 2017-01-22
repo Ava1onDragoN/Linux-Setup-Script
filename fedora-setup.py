@@ -1,5 +1,6 @@
 import os
 
+
 print('...')
 # 安装pexpect先
 os.system('pip3 install pexpect')
@@ -96,7 +97,6 @@ if (x.isalive() == False):
     x.close()
 print("*********************************")
 
-# StarDict
 
 # Wine
 
@@ -118,6 +118,7 @@ x = pexpect.spawn('dnf install terminix' + supplement)
 x.interact()
 if (x.isalive() == False):
     x.close()
+print("Preferences->Appearance->Default seesion name: ${title}")
 print("*********************************")
 
 
@@ -160,7 +161,7 @@ print("*********************************")
 
 # 解码器
 print('解码器multimedia codecs?')
-x = pexpect.spawn('dnf install gstreamer1-plugins-base gstreamer1-plugins-good gstreamer1-plugins-ugly gstreamer1-plugins-bad-free gstreamer1-plugins-bad-free gstreamer1-plugins-bad-freeworld gstreamer1-plugins-bad-free-extras ffmpeg' + supplement)
+x = pexpect.spawn('dnf install gstreamer-plugins-bad gstreamer-plugins-bad-free-extras gstreamer-plugins-bad-nonfree gstreamer-plugins-ugly gstreamer-ffmpeg gstreamer1-libav gstreamer1-plugins-bad-free-extras gstreamer1-plugins-bad-freeworld gstreamer1-plugins-base-tools gstreamer1-plugins-good-extras gstreamer1-plugins-ugly gstreamer1-plugins-bad-free gstreamer1-plugins-good gstreamer1-plugins-base gstreamer1' + supplement)
 x.interact()
 if (x.isalive() == False):
     x.close()
@@ -176,6 +177,15 @@ if (x.isalive() == False):
     x.close()
 print("*********************************")
 
+# Gimp
+print('GIMP?')
+x = pexpect.spawn('dnf install gimp' + supplement)
+x.interact()
+if (x.isalive() == False):
+    x.close()
+print("*********************************")
+
+
 # mypaint
 print('MyPaint?')
 x = pexpect.spawn('dnf install mypaint' + supplement)
@@ -184,6 +194,18 @@ if (x.isalive() == False):
     x.close()
 print("*********************************")
 
+# stardict
+print('stardict字典?')
+x = pexpect.spawn('dnf install stardict' + supplement)
+x.interact()
+if (x.isalive() == False):
+    x.close()
+
+supplement = input("是否安装字典库?[y/n]")
+if ('y' == supplement):
+	os.system('cp star_dict/langdao* /usr/share/stardict/dic/')
+
+print("*********************************")
 
 #pitivi
 
@@ -259,6 +281,7 @@ print("*********************************")
 print("gnome-shell-extension")
 # Media player indicator 
 # https://github.com/codito/gnome-pomodoro
+# https://extensions.gnome.org/extension/21/workspace-indicator/
 
 # paper主题
 print('PAPER主题?')
