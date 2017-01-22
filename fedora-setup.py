@@ -7,7 +7,7 @@ import pexpect
 
 # =必须配置=
 # - rpmfusion 
-#os.system('dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm -y')
+os.system('dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm -y')
 # - 更新
 os.system('dnf update -y')
 os.system('dnf upgrade -y')
@@ -76,8 +76,8 @@ print("*********************************")
 
 
 # N卡驱动
-#print('N卡驱动?')
-#os.system('dnf install xorg-x11-drv-nvidia akmod-nvidia "kernel-devel-uname-r == $(uname -r)"' + supplement)
+print('N卡驱动?')
+os.system('dnf install xorg-x11-drv-nvidia akmod-nvidia "kernel-devel-uname-r == $(uname -r)"' + supplement)
 #print("*********************************")
 
 # Dropbox
@@ -101,12 +101,43 @@ print("*********************************")
 # Wine
 
 # cmus
+print('cmus音乐播放器?')
+x = pexpect.spawn('dnf install cmus' + supplement)
+x.interact()
+if (x.isalive() == False):
+    x.close()
+print("*********************************")
+
 
 # lollypop音乐播放器
 
 # terminix
+print('terminix终端？')
+os.system("dnf copr enable heikoada/terminix -y")
+x = pexpect.spawn('dnf install terminix' + supplement)
+x.interact()
+if (x.isalive() == False):
+    x.close()
+print("*********************************")
+
 
 # gnome-tweak-tool
+print("Gnome Tweak Tool?")
+x = pexpect.spawn('dnf install gnome-tweak-tool' + supplement)
+x.interact()
+if (x.isalive() == False):
+    x.close()
+print("*********************************")
+
+
+# simple-scan
+print('扫描仪？')
+x = pexpect.spawn('dnf install simple-scan' + supplement)
+x.interact()
+if (x.isalive() == False):
+    x.close()
+print("*********************************")
+
 
 # teamspeak
 
@@ -115,6 +146,8 @@ print("*********************************")
 # 格式转换
 
 # Transmission
+
+# p7zip
 
 # Alarm Clock闹钟?
 print('Alarm Clock闹钟?')
@@ -212,9 +245,36 @@ print("*********************************")
 # 字体
 # Flash
 
+# 字体渲染优化
+print('字体渲染优化')
+x = pexpect.spawn('dnf install freetype-freeworld' + supplement)
+x.interact()
+if (x.isalive() == False):
+    x.close()
+print("""然后添加或修改 ~/.Xresources
+
+在 ~/.Xresources 里头添加如下一行：
+
+Xft.lcdfilter: lcddefault""")
+print("source from: https://polog.in/@hemashu/log/fedora-24-font-rendering-improvement")
+
+print("*********************************")
+
+
 print("gnome-shell-extension")
 # Media player indicator 
 # https://github.com/codito/gnome-pomodoro
+
+# 解码器
+print('PAPER主题?')
+os.system("dnf config-manager --add-repo http://download.opensuse.org/repositories/home:snwh:paper/Fedora_25/home:snwh:paper.repo -y")
+x = pexpect.spawn('dnf install paper-icon-theme paper-gtk-theme' + supplement)
+x.interact()
+if (x.isalive() == False):
+    x.close()
+print("*********************************")
+
+
 print()
 print("#################################")
 print('Done!')
