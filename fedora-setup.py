@@ -236,6 +236,8 @@ print(
 """)
 
 # 字体
+# dnf install google-droid-*-fonts
+
 # Flash
 
 # 字体渲染优化
