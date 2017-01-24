@@ -194,6 +194,15 @@ if (x.isalive() == False):
     x.close()
 print("*********************************")
 
+# filezilla
+print('FTP客户的 Filezilla?')
+x = pexpect.spawn('dnf install filezilla' + supplement)
+x.interact()
+if (x.isalive() == False):
+    x.close()
+print("*********************************")
+
+
 # stardict
 print('stardict字典?')
 x = pexpect.spawn('dnf install stardict' + supplement)
