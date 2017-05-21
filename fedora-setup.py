@@ -122,6 +122,16 @@ print("Preferences->Appearance->Default seesion name: ${title}")
 print("*********************************")
 
 
+# Tilix
+print('Tilix终端？')
+os.system(' dnf copr enable heikoada/terminix -y')
+x = pexpect.spawn('sudo dnf install terminix' + supplement)
+x.interact()
+if (x.isalive() == False):
+    x.close()
+print("*********************************")
+
+
 # gnome-tweak-tool
 print("Gnome Tweak Tool?")
 x = pexpect.spawn('dnf install gnome-tweak-tool' + supplement)
@@ -202,6 +212,14 @@ if (x.isalive() == False):
     x.close()
 print("*********************************")
 
+# ownCloud
+print('ownCloud?')
+os.system("dnf config-manager --add-repo http://download.opensuse.org/repositories/isv:ownCloud:desktop/Fedora_25/isv:ownCloud:desktop.repo -y")
+x = pexpect.spawn('dnf install owncloud-client' + supplement)
+x.interact()
+if (x.isalive() == False):
+    x.close()
+print("*********************************")
 
 # stardict
 print('stardict字典?')
@@ -210,11 +228,13 @@ x.interact()
 if (x.isalive() == False):
     x.close()
 
-supplement = input("是否安装字典库?[y/n]")
-if ('y' == supplement):
+boo = input("是否安装字典库?[y/n]")
+if ('y' == boo):
 	os.system('cp star_dict/langdao* /usr/share/stardict/dic/')
 
 print("*********************************")
+
+
 
 #pitivi
 
@@ -305,24 +325,4 @@ print("*********************************")
 print()
 print("#################################")
 print('Done!')
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
