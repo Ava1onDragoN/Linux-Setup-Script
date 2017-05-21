@@ -78,7 +78,7 @@ print("*********************************")
 
 # N卡驱动
 print('N卡驱动?')
-os.system('dnf install xorg-x11-drv-nvidia akmod-nvidia "kernel-devel-uname-r == $(uname -r)"' + supplement)
+os.system('dnf install xorg-x11-drv-nvidia akmod-nvidia "kernel-devel-uname-r == $(uname -r)" vdpauinfo libva-vdpau-driver libva-utils' + supplement)
 #print("*********************************")
 
 # Dropbox
